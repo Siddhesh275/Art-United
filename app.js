@@ -12,21 +12,12 @@ app.locals.moment = require('moment');
 require('dotenv').config()
 
 //+++++++++++++ mongoose connection ++++++++++++
-const mongoose=require("mongoose");
-mongoose
-  .connect('mongodb://localhost:27017/YelpCamp', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("connected to DB");
-  })
-  .catch(err => {
-    console.log("ERROR:", err.message);
-  });
-
-mongoose.set("useFindAndModify", false);
+var mongoose=require("mongoose")
+mongoose.connect(process.env.URL,{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false,useCreateIndex:true},function(err){
+    if(err){
+        console.log("cannot connect to database")
+    }
+});
 
 //++++++++++++ Passport initilize ++++++++++++++++++++
 const passport=require("passport")
