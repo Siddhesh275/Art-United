@@ -3,7 +3,7 @@
 
 ## Built with
 
-### Fornt end
+### Front end
 * HTML 
 * CSS
 * Bootstrap
